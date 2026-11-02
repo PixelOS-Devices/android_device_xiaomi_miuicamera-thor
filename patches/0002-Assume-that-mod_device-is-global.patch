@@ -1,0 +1,31 @@
+From 53c920193e2055543d8d67672e319229690190a6 Mon Sep 17 00:00:00 2001
+From: AdarshGrewal <adarshgrewal@gmail.com>
+Date: Wed, 3 Jun 2026 13:44:28 +0530
+Subject: [PATCH 2/10] Assume that mod_device is global Otherwise, the app tries
+ to start a custom permissions dialog which has dependencies on HyperOS
+ Security Center app
+
+Change-Id: I8962a6e409f5aa30f84fccd482fefe78767069c2
+Signed-off-by: danielml <daniel@danielml.dev>
+
+Otherwise, the app tries to start a custom permissions dialog which has dependencies on HyperOS Security Center app
+---
+ smali_classes3/ic/c.smali | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/smali_classes3/ic/c.smali b/smali_classes3/ic/c.smali
+index 6e7e7a8d..3faf26b1 100644
+--- a/smali_classes3/ic/c.smali
++++ b/smali_classes3/ic/c.smali
+@@ -214,7 +214,7 @@
+ 
+     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+ 
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     sput-boolean v0, Lic/c;->l:Z
+ 
+-- 
+2.56.0
+
