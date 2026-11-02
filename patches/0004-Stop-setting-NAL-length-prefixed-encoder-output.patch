@@ -1,0 +1,25 @@
+From 2a002fe7195a7211e504b940cd81a33616d73dbe Mon Sep 17 00:00:00 2001
+From: Tuan Anh <tuan73176@gmail.com>
+Date: Mon, 2 Nov 2026 13:54:56 +0700
+Subject: [PATCH 4/6] Stop setting NAL length-prefixed encoder output
+
+---
+ smali_classes3/ij/f.smali | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/smali_classes3/ij/f.smali b/smali_classes3/ij/f.smali
+index 7f6a170a..b0259326 100644
+--- a/smali_classes3/ij/f.smali
++++ b/smali_classes3/ij/f.smali
+@@ -804,7 +804,7 @@
+ 
+     iget-boolean v5, v4, Lij/p;->z:Z
+ 
+-    if-eqz v5, :cond_18
++    goto :cond_18
+ 
+     iget v5, v4, Lij/p;->m:I
+ 
+-- 
+2.56.0
+
